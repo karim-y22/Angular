@@ -1,0 +1,98 @@
+<div class="d-flex min-vh-100">
+  <!-- Responsive Sidebar (Desktop only) -->
+  <nav class="custom-sidebar d-none d-md-block">
+    <h4 class="sidebar-title">MeineApp</h4>
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">📊 Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/profile" routerLinkActive="active">👤 Profil</a>
+      </li>
+
+       <li class="nav-item">
+        <a class="nav-link" routerLink="/adminschedulemanager" routerLinkActive="active">📅 Terminmanager</a>
+      </li>
+
+        <li class="nav-item">
+        <a class="nav-link" routerLink="/userappointmentbooking" routerLinkActive="active">🕒 Terminbuchung</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/settings" routerLinkActive="active">⚙️ Einstellungen</a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <!-- Offcanvas for Mobile -->
+  <div class="custom-offcanvas offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar">
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title">MeineApp</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+        aria-label="Schließen"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a class="nav-link text-white" routerLink="/dashboard" routerLinkActive="active"
+            data-bs-dismiss="offcanvas">📊 Dashboard</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link text-white" routerLink="/profile" routerLinkActive="active" data-bs-dismiss="offcanvas">👤
+            Profil</a>
+        </li>
+
+        <li class="nav-item mb-2">
+          <a class="nav-link text-white" routerLink="/adminschedulemanager" routerLinkActive="active" data-bs-dismiss="offcanvas">
+            📅 Terminmanager</a>
+        </li>
+
+         <li class="nav-item mb-2">
+          <a class="nav-link text-white" routerLink="/userappointmentbooking" routerLinkActive="active" data-bs-dismiss="offcanvas">
+            🕒 Terminbuchung</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/settings" routerLinkActive="active" data-bs-dismiss="offcanvas">⚙️
+            Einstellungen</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-grow-1 bg-body-secondary">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand bg-white shadow-sm px-3 px-md-4 d-flex justify-content-between align-items-center"
+      style="min-height: 56px;">
+      <div class="d-flex align-items-center">
+        <button class="btn btn-outline-primary d-md-none me-3" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#mobileSidebar" aria-label="Menü öffnen">
+          ☰
+        </button>
+        <span class="navbar-text fw-medium text-secondary d-none d-sm-inline">👋 Willkommen zurück</span>
+      </div>
+
+      <button (click)="logout()" class="btn btn-sm btn-danger d-flex align-items-center gap-1" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M6 3a1 1 0 0 1 1-1h4.5A1.5 1.5 0 0 1 13 3.5v9A1.5 1.5 0 0 1 11.5 14H7a1 1 0 0 1-1-1v-1h1v1h4.5a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5H7v1H6V3z" />
+          <path fill-rule="evenodd"
+            d="M11.146 8.354a.5.5 0 0 1 0-.708L13.793 5H8.5a.5.5 0 0 1 0-1h5.293L11.146 3.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z" />
+        </svg>
+        Logout
+      </button>
+    </nav>
+
+    <!-- Routed Content -->
+    <div class="container py-4">
+      <div class="card shadow rounded-4 border-0">
+        <div class="card-body p-4">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
