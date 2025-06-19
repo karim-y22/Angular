@@ -11,16 +11,6 @@ declare const bootstrap: any;
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements AfterViewInit {
-  ngAfterViewInit() { }
+export class AppComponent {
 
-  closeNavbar() {
-    const navbarCollapse = document.getElementById('mainNavbar');
-    if (navbarCollapse) {
-      const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-      if (bsCollapse) {
-        bsCollapse.hide();
-      }
-    }
-  }
 }

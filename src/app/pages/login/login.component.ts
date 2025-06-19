@@ -28,29 +28,33 @@ interface LoginResponse {
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
- username: string = '';
-  password: string = '';
-  passwordVisible: boolean = false;
-  errorMessage: string = '';
+  username = '';
+  password = '';
+  passwordVisible = false;
+  errorMessage = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   onSubmit() {
-    const loginPayload = {
+    const loginData = {
       username: this.username,
       password: this.password
     };
 
-    this.http.post('http://localhost:8080/login', loginPayload, { responseType: 'text' })
-      .subscribe({
-        next: response => {
-          console.log('Login erfolgreich', response);
-          this.errorMessage = '';
-          this.router.navigate(['/dashboard']);
-        },
-        error: error => {
-          this.errorMessage = 'Login fehlgeschlagen. Bitte überprüfe deine Zugangsdaten.';
-        }
-      });
+    this.http.post<LoginResponse>('http://localhost:8080/login', loginData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).subscribe({
+      next: (response) => {
+        sessionStorage.setItem('jwtToken', response.jwtToken);
+        sessionStorage.setItem('username', response.username);
+        sessionStorage.setItem('roles', JSON.stringify(response.roles));
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        this.errorMessage = 'Login fehlgeschlagen: ' + (err.error?.message || err.statusText);
+      }
+    });
   }
 }

@@ -9,6 +9,8 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { AdminScheduleManagerComponent } from './pages/admin-schedule-manager/admin-schedule-manager.component';
 import { UserAppointmentBookingComponent } from './pages/user-appointment-booking/user-appointment-booking.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
 
@@ -16,27 +18,30 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'password-reset', component: PasswordResetComponent },
-
+  { path: 'unauthorized', component: UnauthorizedComponent },
 
   {
     path: '',
     component: MainLayoutComponent,
-   // canActivate: [AuthGuard],  // Hier sicherstellen, dass nur angemeldete User rein können
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children:
       [
-        { path: 'dashboard', component: DashboardComponent } ,
-        { path: 'profile', component: ProfileComponent },
 
-        { path: 'adminschedulemanager', component: AdminScheduleManagerComponent },
-        { path: 'userappointmentbooking', component: UserAppointmentBookingComponent},
+        { path: 'dashboard', component: DashboardComponent, data: { roles: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
+        { path: 'profile', component: ProfileComponent, data: { roles: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
+        { path: 'userappointmentbooking', component: UserAppointmentBookingComponent, data: { roles: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
 
-        { path: 'settings', component: SettingsComponent} ,
+
+        { path: 'adminschedulemanager', component: AdminScheduleManagerComponent, data: { roles: ['ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
+        { path: 'settings', component: SettingsComponent, data: { roles: ['ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
 
         { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       ]
   },
 
-  { path: '**', redirectTo: 'login' }  // falls pfad ned gefunden wurde und später auf PageNotFoundComponent umstellen
+  // { path: '**', redirectTo: 'login' }  // falls pfad ned gefunden wurde und später auf PageNotFoundComponent umstellen
+  { path: '**', component: PageNotFoundComponent }
 
 
 ];

@@ -10,16 +10,16 @@
         <a class="nav-link" routerLink="/profile" routerLinkActive="active">👤 Profil</a>
       </li>
 
-       <li class="nav-item">
-        <a class="nav-link" routerLink="/adminschedulemanager" routerLinkActive="active">📅 Terminmanager</a>
+      <li class="nav-item">
+        <a *ngIf="isAdmin && isAuthenticated" class="nav-link" routerLink="/adminschedulemanager" routerLinkActive="active">📅 Terminmanager</a>
       </li>
 
-        <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" routerLink="/userappointmentbooking" routerLinkActive="active">🕒 Terminbuchung</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/settings" routerLinkActive="active">⚙️ Einstellungen</a>
+        <a *ngIf="isAdmin && isAuthenticated" class="nav-link" routerLink="/settings" routerLinkActive="active">⚙️ Einstellungen</a>
       </li>
 
     </ul>
@@ -44,19 +44,24 @@
         </li>
 
         <li class="nav-item mb-2">
-          <a class="nav-link text-white" routerLink="/adminschedulemanager" routerLinkActive="active" data-bs-dismiss="offcanvas">
+          <a *ngIf="isAdmin && isAuthenticated" class="nav-link text-white" routerLink="/adminschedulemanager" routerLinkActive="active"
+            data-bs-dismiss="offcanvas">
             📅 Terminmanager</a>
         </li>
 
-         <li class="nav-item mb-2">
-          <a class="nav-link text-white" routerLink="/userappointmentbooking" routerLinkActive="active" data-bs-dismiss="offcanvas">
+        <li class="nav-item mb-2">
+          <a class="nav-link text-white" routerLink="/userappointmentbooking" routerLinkActive="active"
+            data-bs-dismiss="offcanvas">
             🕒 Terminbuchung</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" routerLink="/settings" routerLinkActive="active" data-bs-dismiss="offcanvas">⚙️
-            Einstellungen</a>
+          <a *ngIf="isAdmin && isAuthenticated"  class="nav-link text-white" routerLink="/settings" routerLinkActive="active" data-bs-dismiss="offcanvas">
+            ⚙️ Einstellungen
+          </a>
         </li>
+
+
       </ul>
     </div>
   </div>
