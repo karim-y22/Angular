@@ -9,11 +9,11 @@ export const appConfig: ApplicationConfig = {
   providers: 
   [
     provideHttpClient(
-      withXsrfConfiguration({
-        cookieName: 'XSRF-TOKEN',
-        headerName: 'X-XSRF-TOKEN'
-      }),
-      withInterceptors([jwtInterceptor])
+    //  withXsrfConfiguration({
+       // cookieName: 'XSRF-TOKEN',
+       // headerName: 'X-XSRF-TOKEN'
+     // }),
+     // withInterceptors([jwtInterceptor])
     ),
 
     provideZoneChangeDetection({ eventCoalescing: true }), 

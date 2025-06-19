@@ -21,16 +21,16 @@ export const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
-    canActivate: [AuthGuard],  // Hier sicherstellen, dass nur angemeldete User rein können
+   // canActivate: [AuthGuard],  // Hier sicherstellen, dass nur angemeldete User rein können
     children:
       [
-        { path: 'dashboard', component: DashboardComponent, data: { roles: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
-        { path: 'profile', component: ProfileComponent, data: { roles: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
+        { path: 'dashboard', component: DashboardComponent } ,
+        { path: 'profile', component: ProfileComponent },
 
-        { path: 'adminschedulemanager', component: AdminScheduleManagerComponent, data: { roles: ['ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
-        { path: 'userappointmentbooking', component: UserAppointmentBookingComponent, data: { roles: ['ROLE_USER','ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
+        { path: 'adminschedulemanager', component: AdminScheduleManagerComponent },
+        { path: 'userappointmentbooking', component: UserAppointmentBookingComponent},
 
-        { path: 'settings', component: SettingsComponent, data: { roles: ['ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
+        { path: 'settings', component: SettingsComponent} ,
 
         { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       ]
