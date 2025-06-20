@@ -4,6 +4,9 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
+interface ErrorResponse {
+  message: string;
+}
 
 interface LoginRequest {
   username: string;
@@ -36,25 +39,32 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) { }
 
   onSubmit() {
-    const loginData = {
+    const loginData: LoginRequest = {
       username: this.username,
       password: this.password
     };
 
-    this.http.post<LoginResponse>('http://localhost:8080/login', loginData, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    this.login(loginData);
+  }
+
+  private login(data: LoginRequest) {
+    this.http.post<LoginResponse>('http://localhost:8080/api/auth/login', data, {
+      headers: { 'Content-Type': 'application/json' }
     }).subscribe({
-      next: (response) => {
-        sessionStorage.setItem('jwtToken', response.jwtToken);
-        sessionStorage.setItem('username', response.username);
-        sessionStorage.setItem('roles', JSON.stringify(response.roles));
-        this.router.navigate(['/dashboard']);
-      },
-      error: (err) => {
-        this.errorMessage = 'Login fehlgeschlagen: ' + (err.error?.message || err.statusText);
-      }
+      next: (res) => this.handleLoginSuccess(res),
+      error: (err) => this.handleLoginError(err)
     });
+  }
+
+  private handleLoginSuccess(response: LoginResponse) {
+    sessionStorage.setItem('jwtToken', response.jwtToken);
+    sessionStorage.setItem('username', response.username);
+    sessionStorage.setItem('roles', JSON.stringify(response.roles));
+    this.router.navigate(['/dashboard']);
+  }
+
+  private handleLoginError(err: any) {
+    const errorBody = err.error as ErrorResponse;
+    this.errorMessage = 'Login fehlgeschlagen: ' + (errorBody?.message || 'Unbekannter Fehler');
   }
 }

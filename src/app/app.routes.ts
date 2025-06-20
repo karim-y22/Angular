@@ -11,14 +11,15 @@ import { UserAppointmentBookingComponent } from './pages/user-appointment-bookin
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { SessionExpiredComponent } from './pages/session-expired/session-expired.component';
 
 export const routes: Routes = [
 
-  // Öffentliche Seiten ohne AuthGuard
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'password-reset', component: PasswordResetComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
+  { path: 'sessionexpired', component: SessionExpiredComponent },
 
   {
     path: '',
@@ -27,7 +28,6 @@ export const routes: Routes = [
     canActivateChild: [AuthGuard],
     children:
       [
-
         { path: 'dashboard', component: DashboardComponent, data: { roles: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
         { path: 'profile', component: ProfileComponent, data: { roles: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
         { path: 'userappointmentbooking', component: UserAppointmentBookingComponent, data: { roles: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPERADMIN'] } },
@@ -40,7 +40,6 @@ export const routes: Routes = [
       ]
   },
 
-  // { path: '**', redirectTo: 'login' }  // falls pfad ned gefunden wurde und später auf PageNotFoundComponent umstellen
   { path: '**', component: PageNotFoundComponent }
 
 

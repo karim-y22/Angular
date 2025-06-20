@@ -22,10 +22,9 @@ export class RegisterComponent {
       password: this.password
     };
 
-    this.http.post('http://localhost:8080/register', body).subscribe({
+    this.http.post('http://localhost:8080/api/auth/register', body).subscribe({
       next: response => {
         console.log('Erfolgreich registriert:', response);
-        // Optional: z.B. weiterleiten
       },
       error: error => {
         console.error('Fehler bei der Registrierung:', error);

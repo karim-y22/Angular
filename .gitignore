@@ -68,3 +68,6 @@ src/environments/*.ts
 # Optional: environment files
 .env
 .env.*
+package-lock.json
+package-lock.json
+package.json
