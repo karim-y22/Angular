@@ -1,0 +1,55 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+  <div class="bg-light p-4 rounded shadow-sm" style="max-width: 500px; width: 100%;">
+    <h4 class="text-center text-primary mb-4">
+      <i class="fas fa-shield-alt me-2"></i>SecurityInfos
+    </h4>
+
+    <ng-container *ngIf="userInfo as user; else loading">
+      <div class="row mb-2 align-items-center">
+        <div class="col-1 text-center"><i class="fas fa-id-badge text-secondary"></i></div>
+        <div class="col"><strong>ID:</strong> {{ user.id }}</div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-1 text-center"><i class="fas fa-user text-secondary"></i></div>
+        <div class="col"><strong>Benutzername:</strong> {{ user.username }}</div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-1 text-center"><i class="fas fa-user-tag text-secondary"></i></div>
+        <div class="col"><strong>Rolle:</strong> {{ user.role }}</div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-1 text-center"><i class="fas fa-hourglass-start text-secondary"></i></div>
+        <div class="col">
+          <strong>JWT gültig ab:</strong>
+          {{ user.jwtissuedAtDate | jwtDate }}
+        </div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-1 text-center"><i class="fas fa-hourglass-end text-secondary"></i></div>
+        <div class="col">
+          <strong>JWT gültig bis:</strong>
+          {{ user.jwtexpirationDate | jwtDate }}
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col text-center">
+          <span class="badge bg-danger fs-6">
+            <i class="fas fa-clock me-1"></i>JWT Ablauf in: {{ countdown }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #loading>
+      <div class="d-flex justify-content-center align-items-center" style="height: 100px;">
+        <div class="spinner-border text-primary" role="status" aria-hidden="true"></div>
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </ng-template>
+  </div>
+</div>

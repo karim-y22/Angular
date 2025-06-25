@@ -1,0 +1,30 @@
+<div class="unauthorized-wrapper container py-5 d-flex flex-column align-items-center text-center">
+  <section class="unauthorized-box px-4 py-5 rounded-4 shadow-lg">
+
+    <div class="icon-row mb-4 d-flex justify-content-center gap-4">
+      <i class="fas fa-user-lock fa-3x text-danger"></i>
+      <i class="fas fa-exclamation-triangle fa-3x text-warning"></i>
+      <i class="fas fa-shield-alt fa-3x text-info"></i>
+      <i class="fas fa-ban fa-3x text-danger"></i>
+    </div>
+
+    <h1 class="display-4 fw-bold mb-3">Zugriff verweigert</h1>
+    <p class="lead mb-4 px-3 mx-auto" style="max-width: 600px;">
+      Du hast keine Berechtigung, diese Seite zu sehen.<br>
+      Bitte melde dich mit den richtigen Zugangsdaten an oder kontaktiere den Support.
+    </p>
+
+    <button (click)="goHome()" class="btn btn-lg btn-light text-danger px-5 shadow-sm fw-bold">
+      Zur Startseite
+      <i class="fas fa-arrow-left ms-2"></i>
+    </button>
+
+  </section>
+
+  <footer class="mt-5 text-muted small">
+    <p><i class="fas fa-info-circle"></i> Falls du Fragen hast, wende dich an
+      <a href="mailto:support&#64;example.com" class="text-decoration-underline">support&#64;example.com</a>
+    </p>
+  </footer>
+
+</div>

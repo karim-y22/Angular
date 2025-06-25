@@ -1,0 +1,54 @@
+.session-expired-container {
+  min-height: 75vh;
+  background: #f8f9fa; /* heller, freundlicher Hintergrund */
+  color: #212529; /* dunkle Schrift für beste Lesbarkeit */
+}
+
+.icon-row i {
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+/* Pulsierende Animation für Icons */
+@keyframes pulse-animation {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.7; }
+}
+
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+.pulse-delay {
+  animation: pulse-animation 2s infinite;
+  animation-delay: 1s;
+}
+
+h1.text-danger {
+  text-shadow: 1px 1px 3px rgba(220, 53, 69, 0.6);
+}
+
+p.lead {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+button.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.btn-primary:hover, button.btn-primary:focus {
+  background-color: #084cdf;
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.7);
+  outline: none;
+}
+
+button.btn-primary i {
+  transition: transform 0.3s ease;
+}
+
+button.btn-primary:hover i {
+  transform: translateX(5px);
+}

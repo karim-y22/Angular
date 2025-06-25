@@ -1,0 +1,21 @@
+<div class="session-expired-container d-flex flex-column justify-content-center align-items-center text-center p-5">
+
+  <div class="icon-row mb-4 d-flex gap-4 justify-content-center">
+    <i class="fas fa-clock fa-4x text-warning pulse"></i>
+    <i class="fas fa-exclamation-circle fa-4x text-danger pulse-delay"></i>
+    <i class="fas fa-sign-out-alt fa-4x text-primary pulse"></i>
+  </div>
+
+  <h1 class="display-4 fw-bold text-danger mb-3">⚠️ Sitzung abgelaufen</h1>
+
+  <p class="lead mb-4 px-3 mx-auto" style="max-width: 480px; color: #444;">
+    Sie wurden automatisch abgemeldet.<br>
+    Bitte loggen Sie sich erneut ein, um weiterzumachen.
+  </p>
+
+  <button class="btn btn-primary btn-lg px-5 shadow-lg fw-bold" (click)="onLogin()">
+    Jetzt neu einloggen
+    <i class="fas fa-arrow-right ms-2"></i>
+  </button>
+
+</div>

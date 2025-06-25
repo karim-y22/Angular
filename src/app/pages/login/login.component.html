@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="card shadow-sm p-4" style="min-width: 320px; max-width: 400px; width: 100%;">
+        <h2 class="mb-4 text-center fw-bold">Login</h2>
+
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div class="mb-3">
+                <label for="email" class="form-label fw-semibold">E-Mail Adresse</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com"
+                        [(ngModel)]="email" />
+
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="form-label fw-semibold">Passwort</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input [type]="showPassword ? 'text' : 'password'" id="password" name="password"
+                        class="form-control" placeholder="••••••••" [(ngModel)]="password" />
+
+                    <button type="button" class="btn btn-outline-secondary" (click)="showPassword = !showPassword"
+                        tabindex="-1" aria-label="Passwort anzeigen/verstecken">
+                        <i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Fehlermeldung -->
+            <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+                {{ errorMessage }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 fw-semibold" [disabled]="isLoading">
+                <ng-container *ngIf="!isLoading; else loading">
+                    <i class="fas fa-sign-in-alt me-2"></i> Anmelden
+                </ng-container>
+                <ng-template #loading>
+                    <i class="fas fa-spinner fa-spin me-2"></i> Wird angemeldet…
+                </ng-template>
+            </button>
+        </form>
+
+
+           <div class="text-center mt-3">
+                <small class="text-muted">
+                    <a routerLink="/register">Registrieren</a> | <a routerLink="/password-reset">Passwort vergessen?</a>
+                </small>
+            </div>
+    </div>
+</div>

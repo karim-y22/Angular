@@ -1,0 +1,62 @@
+<div class="home-wrapper container py-5 d-flex flex-column align-items-center text-center">
+
+  <!-- Hero Section -->
+  <section class="hero mb-5 px-4 py-5 rounded-4 shadow-lg bg-gradient">
+    <div class="icon-wrapper d-flex justify-content-center gap-4 mb-4">
+      <i class="fas fa-comments fa-3x text-white"></i>
+      <i class="fas fa-calendar-check fa-3x text-white"></i>
+      <i class="fas fa-handshake fa-3x text-white"></i>
+      <i class="fas fa-user-friends fa-3x text-white"></i>
+    </div>
+
+    <h1 class="display-3 fw-bold text-white mb-3 hero-title">Wir sind für dich da!</h1>
+    <p class="lead text-light mb-4 px-3 mx-auto" style="max-width: 600px;">
+      Egal, was du brauchst – wir nehmen uns Zeit für dich. Persönlich, kompetent und unkompliziert.
+      Sichere dir jetzt ganz einfach online dein Beratungsgespräch.
+    </p>
+    <button *ngIf=" !isAuthenticated" (click)="goToBooking()"
+      class="btn btn-lg btn-light text-primary px-5 shadow-sm fw-bold">
+      Jetzt Termin buchen
+      <i class="fas fa-arrow-right ms-2"></i>
+    </button>
+  </section>
+
+
+  <!-- Services Section -->
+  <section class="services mb-5 px-4">
+    <h2 class="h1 fw-bold mb-4 text-primary">Was uns besonders macht</h2>
+    <div class="row justify-content-center gx-4 gy-4">
+      <div class="col-md-4 service-card p-4 rounded-3 shadow-sm bg-white text-dark">
+        <i class="fas fa-star fa-3x mb-3 text-primary"></i>
+        <h3 class="h4 fw-semibold mb-2">Individuelle Beratung</h3>
+        <p>Wir nehmen uns Zeit, auf deine Wünsche einzugehen und gemeinsam die beste Lösung zu finden.</p>
+      </div>
+      <div class="col-md-4 service-card p-4 rounded-3 shadow-sm bg-white text-dark">
+        <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+        <h3 class="h4 fw-semibold mb-2">Engagiertes Team</h3>
+        <p>Ein motiviertes Team mit Herz, das sich für dich einsetzt – persönlich, empathisch, zuverlässig.</p>
+      </div>
+      <div class="col-md-4 service-card p-4 rounded-3 shadow-sm bg-white text-dark">
+        <i class="fas fa-clock fa-3x mb-3 text-primary"></i>
+        <h3 class="h4 fw-semibold mb-2">Flexibel & unkompliziert</h3>
+        <p>Einfach online buchen – wann es dir passt. Keine Wartezeit, kein Aufwand.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section px-4 py-5 bg-primary rounded-4 text-white shadow-lg"
+    style="max-width: 700px; width: 100%;">
+    <h2 class="h1 fw-bold mb-4">Kontakt & Erreichbarkeit</h2>
+    <p class="mb-1"><strong>Standort:</strong> Musterstraße 22, 1220 Vienna City</p>
+    <p class="mb-1"><strong>Telefon:</strong> <a href="tel:+490123456789"
+        class="text-white text-decoration-underline">+43 0123 456789</a></p>
+    <a [href]="'mailto:' + email" class="text-white text-decoration-underline">{{ email }}</a>
+    <p class="mb-4">Mo - Fr: 09:00 - 18:00 | Sa: nach Vereinbarung</p>
+    <button *ngIf=" !isAuthenticated" (click)="goToBooking()" class="btn btn-light btn-lg fw-bold px-5 shadow-sm">
+      Termin vereinbaren
+      <i class="fas fa-arrow-right ms-2"></i>
+    </button>
+  </section>
+
+</div>

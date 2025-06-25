@@ -1,0 +1,36 @@
+<div class="container py-5 d-flex flex-column align-items-center text-center">
+  <section class="access-wrapper bg-white p-5 rounded-4 shadow-lg" style="max-width: 700px; width: 100%;">
+
+    <i class="fas fa-user-lock fa-4x text-primary mb-4"></i>
+    <h1 class="h2 fw-bold mb-3">Bevor es losgeht ...</h1>
+    <p class="lead text-muted mb-4">
+      Bitte <strong>registriere dich</strong> oder <strong>melde dich an</strong>, um alle Funktionen nutzen zu können.
+      So können wir dir ein persönliches Erlebnis ermöglichen.
+    </p>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6 mb-3">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body d-flex flex-column align-items-center">
+            <i class="fas fa-user-plus fa-2x text-success mb-3"></i>
+            <h5 class="fw-semibold mb-2">Neu hier?</h5>
+            <p class="text-muted small mb-3">Erstelle dein Konto in wenigen Sekunden – einfach & kostenlos.</p>
+            <button (click)="goToRegister()" class="btn btn-success w-100">Registrieren</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body d-flex flex-column align-items-center">
+            <i class="fas fa-sign-in-alt fa-2x text-primary mb-3"></i>
+            <h5 class="fw-semibold mb-2">Schon registriert?</h5>
+            <p class="text-muted small mb-3">Melde dich an, um fortzufahren und alle Vorteile zu nutzen.</p>
+            <button (click)="goToLogin()" class="btn btn-primary w-100">Anmelden</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>

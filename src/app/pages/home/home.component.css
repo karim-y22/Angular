@@ -1,0 +1,45 @@
+.home-wrapper {
+  font-family: 'Poppins', sans-serif;
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+  border-radius: 1rem;
+}
+
+.service-card i {
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover i {
+  transform: scale(1.2);
+  color: #6a11cb;
+}
+
+.contact-section a:hover {
+  text-decoration: none;
+  color: #e0e0ff;
+}
+
+.btn-light {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: white;
+  color: #0d6efd;
+  box-shadow: 0 6px 15px rgba(13, 110, 253, 0.4);
+}
+
+
+.bg-gradient {
+  background-color: #0d6efd; /* kräftiges Bootstrap-Blau */
+  border-radius: 1rem;
+  color: white;
+}
+
+.hero h1,
+.hero p {
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
