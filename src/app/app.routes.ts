@@ -12,6 +12,7 @@ import { AdminScheduleManagerComponent } from './pages/admin-schedule-manager/ad
 import { BookingComponent } from './pages/booking/booking.component';
 import { AccessrequiredComponent } from './pages/accessrequired/accessrequired.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
+import { RegistersuccessComponent } from './pages/registersuccess/registersuccess.component';
 
 export const routes: Routes = [
 
@@ -21,6 +22,7 @@ export const routes: Routes = [
     { path: 'unauthorized', component: UnauthorizedComponent },
     { path: 'password-reset', component: PasswordResetComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'registersuccess', component: RegistersuccessComponent },
 
     { path: '', redirectTo: '/home', pathMatch: 'full' }, // leerer Pfad (Root) 
 

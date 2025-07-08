@@ -1,12 +1,107 @@
-<form (ngSubmit)="onSubmit()" #registerForm="ngForm">
- 
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username" [(ngModel)]="username" required />
-  <br />
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
+    <h2 class="card-title text-center mb-4">
+      <i class="fas fa-user-plus"></i> Registrierung
+    </h2>
 
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" [(ngModel)]="password" required />
-  <br />
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm" novalidate class="needs-validation">
+      <div class="mb-3">
+        <label for="email" class="form-label">
+          <i class="fas fa-envelope"></i> E-Mail
+        </label>
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="formData.email" required />
+        <div class="text-danger mt-1" *ngIf="getFieldError('email')">
+          {{ getFieldError('email') }}
+        </div>
+      </div>
 
-  <button type="submit" [disabled]="registerForm.invalid">Register</button>
-</form>
+      <div class="mb-3">
+        <label for="username" class="form-label">
+          <i class="fas fa-user"></i> Benutzername
+        </label>
+        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="formData.username"
+          required />
+        <div class="text-danger mt-1" *ngIf="getFieldError('username')">
+          {{ getFieldError('username') }}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">
+          <i class="fas fa-lock"></i> Passwort
+        </label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="formData.password"
+          required />
+        <div class="text-danger mt-1" *ngIf="getFieldError('password')">
+          {{ getFieldError('password') }}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="firstname" class="form-label">
+          <i class="fas fa-id-badge"></i> Vorname
+        </label>
+        <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="formData.firstname"
+          required />
+        <div class="text-danger mt-1" *ngIf="getFieldError('firstname')">
+          {{ getFieldError('firstname') }}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="lastname" class="form-label">
+          <i class="fas fa-id-badge"></i> Nachname
+        </label>
+        <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="formData.lastname"
+          required />
+        <div class="text-danger mt-1" *ngIf="getFieldError('lastname')">
+          {{ getFieldError('lastname') }}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="age" class="form-label">
+          <i class="fas fa-hourglass-half"></i> Alter
+        </label>
+        <input type="number" class="form-control" id="age" name="age" [(ngModel)]="formData.age" required />
+        <div class="text-danger mt-1" *ngIf="getFieldError('age')">
+          {{ getFieldError('age') }}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="dateOfBirth" class="form-label">
+          <i class="fas fa-calendar-alt"></i> Geburtsdatum
+        </label>
+        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" [(ngModel)]="formData.dateOfBirth"
+          required />
+        <div class="text-danger mt-1" *ngIf="getFieldError('dateOfBirth')">
+          {{ getFieldError('dateOfBirth') }}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">
+          <i class="fas fa-phone"></i> Telefonnummer
+        </label>
+        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="formData.phoneNumber"
+          required pattern="^[+]?\\d{6,20}$" />
+        <div class="text-danger mt-1" *ngIf="getFieldError('phoneNumber')">
+          {{ getFieldError('phoneNumber') }}
+        </div>
+      </div>
+
+
+      <!-- Allgemeine Fehlermeldung fett rot -->
+      <div *ngIf="errorMessage" class="error-message alert alert-danger mb-3" role="alert">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="isSubmitting">
+        <i *ngIf="!isSubmitting" class="fas fa-user-plus"></i>
+        <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm"></span>
+        {{ isSubmitting ? 'Wird gesendet…' : 'Registrieren' }}
+      </button>
+    </form>
+  </div>
+</div>
