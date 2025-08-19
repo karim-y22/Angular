@@ -13,6 +13,7 @@ import { BookingComponent } from './pages/booking/booking.component';
 import { AccessrequiredComponent } from './pages/accessrequired/accessrequired.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { RegistersuccessComponent } from './pages/registersuccess/registersuccess.component';
+import { ResetPasswordComponent } from './pages/new-password-form/reset-password.component';
 
 export const routes: Routes = [
 
@@ -20,7 +21,10 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'sessionexpired', component: SessionExpiredComponent },
     { path: 'unauthorized', component: UnauthorizedComponent },
+
     { path: 'password-reset', component: PasswordResetComponent },
+    { path: 'reset-password', component: ResetPasswordComponent },
+
     { path: 'register', component: RegisterComponent },
     { path: 'registersuccess', component: RegistersuccessComponent },
 

@@ -43,7 +43,7 @@ export class RegisterComponent {
       next: (res) => {
         console.log('Registrierung erfolgreich', res);
 
-        // *** NEU: Nach erfolgreicher Registrierung weiterleiten ***
+        // Nach erfolgreicher Registrierung weiterleiten
         // Wir leiten auf die Login-Seite weiter und übergeben einen Query-Parameter "registered=true"
         this.router.navigate(['/registersuccess']);
 
